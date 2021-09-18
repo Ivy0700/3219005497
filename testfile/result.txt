@@ -1,0 +1,24 @@
+The original File : testfile/orig.txt
+The copy File : testfile/orig_0.8_add.txt
+Similarity : 85.51%
+The original File : testfile/orig.txt
+The copy File : testfile/orig_0.8_del.txt
+Similarity : 92.48%
+The original File : testfile/orig.txt
+The copy File : testfile/orig_0.8_dis_1.txt
+Similarity : 96.92%
+The original File : testfile/orig.txt
+The copy File : testfile/orig_0.8_dis_10.txt
+Similarity : 95.42%
+The original File : testfile/orig.txt
+The copy File : testfile/orig_0.8_dis_15.txt
+Similarity : 88.24%
+The original File : testfile/orig.txt
+The copy File : testfile/orig.txt
+Similarity : 100.0%
+The original File : testfile/orig.txt
+The copy File : testfile/orig_0.8_dis_20.txt
+Similarity : 88.24%
+The original File : D:\maven\softwarehomework\3219005497\testfile\orig.txt
+The copy File : D:\maven\softwarehomework\3219005497\testfile\orig_0.8_add.txt
+Similarity : 85.51%

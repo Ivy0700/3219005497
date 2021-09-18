@@ -1,7 +1,6 @@
 package utils;
 
 import exception.FileEmptyException;
-import exception.FileException;
 import exception.FileNotExistException;
 import exception.FileWrongFormatException;
 import org.wltea.analyzer.core.IKSegmenter;
@@ -9,7 +8,6 @@ import org.wltea.analyzer.core.IKSegmenter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -40,13 +38,22 @@ public class FileUtils {
     public static void writeFile(String similarity, String originPath, String fakePath, String filePath) {
         File file = new File(filePath);
         FileWriter fileWriter = null;
+        StringBuilder stringBuilder = new StringBuilder();
         try {
             System.out.print("The original File : " + originPath );
+            System.out.println(" ");
             System.out.print("The copy File : " + fakePath);
+            System.out.println(" ");
             System.out.print("Similarity : " + similarity + "%");
             System.out.println();
-            fileWriter = new FileWriter(file);
-            fileWriter.write( similarity + "%");
+            fileWriter = new FileWriter(file, true);
+            stringBuilder.append("The original File : ").append(originPath);
+            stringBuilder.append("\n");
+            stringBuilder.append("The copy File : ").append(fakePath);
+            stringBuilder.append("\n");
+            stringBuilder.append("Similarity : ").append(similarity).append("%");
+            stringBuilder.append("\n");
+            fileWriter.write( stringBuilder.toString());
 
         } catch (IOException e) {
             e.printStackTrace();

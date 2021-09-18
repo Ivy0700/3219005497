@@ -1,7 +1,9 @@
+package test;
+
+import org.junit.Assert;
 import org.junit.Test;
 import utils.ProcessUtils;
 
-import java.io.IOException;
 
 /**
  *
@@ -18,7 +20,8 @@ public class TestPaperCheck {
             ProcessUtils.applicationProcess("testfile/test.txt",
                     "testfile/orig.txt", "testfile/result.txt");
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+//            System.out.println(e.getMessage());
+            Assert.fail(e.getMessage());
         }
     }
 
@@ -30,7 +33,8 @@ public class TestPaperCheck {
         try {
             ProcessUtils.applicationProcess("testfile/orig.txt", "testfile/1.txt","testFile/result.txt" );
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            Assert.fail(e.getMessage());
+//            System.out.println(e.getMessage());
         }
     }
 
@@ -44,7 +48,10 @@ public class TestPaperCheck {
                     "testfile/orig_0.8_add.txt", "testfile/result.txt");
         } catch (Exception e) {
             e.printStackTrace();
+            Assert.fail();
         }
+
+
     }
 
 
@@ -57,6 +64,7 @@ public class TestPaperCheck {
             ProcessUtils.applicationProcess("testfile/orig.txt",
                     "testfile/orig_0.8_del.txt", "testfile/result.txt");
         } catch (Exception e) {
+            Assert.fail();
             e.printStackTrace();
         }
     }
@@ -70,6 +78,7 @@ public class TestPaperCheck {
             ProcessUtils.applicationProcess("testfile/orig.txt",
                     "testfile/orig_0.8_dis_1.txt", "testfile/result.txt");
         } catch (Exception e) {
+            Assert.fail();
             e.printStackTrace();
         }
     }
@@ -83,6 +92,7 @@ public class TestPaperCheck {
             ProcessUtils.applicationProcess("testfile/orig.txt",
                     "testfile/orig_0.8_dis_10.txt", "testfile/result.txt");
         } catch (Exception e) {
+            Assert.fail();
             e.printStackTrace();
         }
     }
@@ -96,6 +106,7 @@ public class TestPaperCheck {
             ProcessUtils.applicationProcess("testfile/orig.txt",
                     "testfile/orig_0.8_dis_15.txt", "testFile/result.txt");
         } catch (Exception e) {
+            Assert.fail();
             e.printStackTrace();
         }
     }
@@ -110,6 +121,7 @@ public class TestPaperCheck {
             ProcessUtils.applicationProcess("testfile/orig.txt",
                     "testfile/orig.txt", "testfile/result.txt");
         } catch (Exception e) {
+            Assert.fail();
             e.printStackTrace();
         }
     }
@@ -124,7 +136,8 @@ public class TestPaperCheck {
             ProcessUtils.applicationProcess("testFile/orig.txt",
                     "testfile/testWordfile.doc", "testFile/result.txt");
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            Assert.fail(e.getMessage());
+//            System.out.println(e.getMessage());
         }
     }
 
@@ -138,6 +151,7 @@ public class TestPaperCheck {
             ProcessUtils.applicationProcess("testfile/orig.txt",
                     "testfile/orig_0.8_dis_20.txt", "testfile/result.txt");
         } catch (Exception e) {
+            Assert.fail();
             e.printStackTrace();
         }
     }

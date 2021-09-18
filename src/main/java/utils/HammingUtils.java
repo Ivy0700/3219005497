@@ -31,7 +31,9 @@ public class HammingUtils {
         //获取两者之间的海明距离
         int distance = getHammingDistance(simHash1, simHash2);
 
+        //计算出SimHash之间的交集
         int intersection = simHash1.length() - distance;
+        //SimHash之间的并集
         int union = simHash1.length() + distance;
 
         BigDecimal bigDecimal = new BigDecimal(  100 * (double) intersection / union);
