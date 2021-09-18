@@ -1,24 +1,25 @@
-package untils;
+package utils;
 
 import org.wltea.analyzer.core.IKSegmenter;
 import org.wltea.analyzer.core.Lexeme;
 
 import java.io.IOException;
 import java.math.BigInteger;
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.util.HashMap;
 import java.util.Map;
-//TODO 考虑到文本为空的情况
+
 public class SimHashUtils {
     private static Integer hashBit = 128;
 
     /**
      * 获取分词频率
-     * @param segmenter
-     * @return
-     * @throws IOException
+     * @param segmenter IKSegmenter里存有分词后的内容
+     * @return 存有词频率的哈希表
+     * @throws IOException 可能发生的IO异常
      */
-    public static Map<String, Integer> getWordFrequency(IKSegmenter segmenter) throws IOException {
+    private static Map<String, Integer> getWordFrequency(IKSegmenter segmenter) throws IOException {
         Map<String, Integer> frequencyMap = new HashMap<>();
 
         Lexeme word = segmenter.next();
@@ -34,13 +35,13 @@ public class SimHashUtils {
 
     /**
      * 对该词进行MD5加密，如果少于hashBit则用0补全
-     * @param word
-     * @return
+     * @param word 词
+     * @return 哈希值
      */
-    public static String getMD5Hash(String word) {
+    private static String getMD5Hash(String word) {
         try{
             MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-            StringBuilder hash = new StringBuilder(new BigInteger(1, messageDigest.digest(word.getBytes("UTF-8"))).toString(2));
+            StringBuilder hash = new StringBuilder(new BigInteger(1, messageDigest.digest(word.getBytes(StandardCharsets.UTF_8))).toString(2));
 
             //如果hash小于hashBit，则用0补全
             if(hash.length() < hashBit) {
@@ -59,8 +60,8 @@ public class SimHashUtils {
 
     /**
      * 获取SimHash值
-     * @param segmenter
-     * @return
+     * @param segmenter IKSegementer里存有分词后的内容
+     * @return SimHash
      */
     public static String getSimHash(IKSegmenter segmenter) throws IOException {
         int[] vector = new int[hashBit];
